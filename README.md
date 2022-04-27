@@ -8,8 +8,8 @@ Takım 91
 
 - Muhammed Ali Kurtulbaş: Product Owner
 - Ayşegül Soybilge: Scrum Master
-- Esra Dağ: Team Member/Developer
-- Berk Agat: Team Member/Developer
+- Esra Dağ: 3D Artist
+- Berk Agat: Developer
 
 ## Ürün İsmi
 
