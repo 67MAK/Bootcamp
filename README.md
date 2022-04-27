@@ -32,7 +32,7 @@ Takım 91
 - Oyun severler
 - Aksiyon ve Strateji severler
 - Uzaya ilgi duyanlar
-- 7 - 20 yaş arası kullanıcılar
+- 7+ yaş kullanıcılar
 
 ## Product Backlog URL
 
