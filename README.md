@@ -23,15 +23,15 @@ Takım 91
 
 - Düşman ve silah çeşitliliği bakımından zengin
 - Görsel anlamda oyuncuyu tatmin eden
-- 
-- 
+- Kolay ve anlaşılır oynanış
+- Kullanıcı dostu arayüz
 
 ## Hedef Kitle
 
 - Mobil kullanıcıları
 - Oyun severler
 - Aksiyon ve Strateji severler
-- Uzaya ilgi duyanlar
+- Uzay temalı oyunlara ilgi duyanlar
 - 7+ yaş kullanıcılar
 
 ## Product Backlog URL
