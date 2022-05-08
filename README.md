@@ -42,7 +42,7 @@ Takım 91
 
 # Sprint 1
 
-- **Sprint Notları**: 
+- **Sprint Notları**: Product Backloglar oluşturuldu. Listedeki her iş için gerekli açıklamalar ve parçalanmış görevler eklendi.
 
 - **Sprint içinde tamamlanması tahmin edilen puan**: 100 Puan
 
@@ -51,24 +51,16 @@ Takım 91
 - **Backlog düzeni ve Story seçimleri**: 
 
 - **Daily Scrum**: Daily Scrum toplantılarının zamansal sebeplerden ötürü WhatsApp üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg veya word olarak Readme'de tarafımızdan paylaşılmaktadır: [Sprint 1 Daily Scrum Chats][takım91-DailyScrumMeetingNotesSprint1.docx](https://github.com/67MAK/Bootcamp/files/8647375/takim91-DailyScrumMeetingNotesSprint1.docx)
-
-
-- **Sprint board update**: Sprint board screenshotları: 
-
-
-
-- **Ürün Durumu**: Ekran görüntüleri:
-  
   
 
 - **Sprint Review**: 
-Alınan kararlar: 
-Sprint Review katılımcıları: ......
+Alınan kararlar: Sprint 1 içerisinde bitmeyen işlere Sprint 2'de devam edilmesine karar verildi. Sprint 1'de yapıldığı gibi modeller tamamlanana dek algoritmaların belli seviyede oluşturulmasına ve modeller tamamlandığında üründe sona daha kolay gelinmesine karar verildi.
+Sprint Review katılımcıları: Tüm ekip
 
 - **Sprint Retrospective:**
-  - 
-  - 
-  - 
+  - Ekipteki bir üyenin iş yoğunluğunun tahminlerin üstünde artması dolayısıyla görev dağılımı düzenlenmeli.
+  - Görevlere puanlar eklenmeli ve tahmin puanları belirlenmeli
+  - İşlerin yetişmesi için daha sıkı çalışılmalı.
 
 -**Diğer Notlar**:
 - N/A
