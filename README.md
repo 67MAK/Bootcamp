@@ -50,7 +50,8 @@ Takım 91
 
 - **Backlog düzeni ve Story seçimleri**: 
 
-- **Daily Scrum**: Daily Scrum toplantılarının zamansal sebeplerden ötürü WhatsApp üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg veya word olarak Readme'de tarafımızdan paylaşılmaktadır: [Sprint 1 Daily Scrum Chats]
+- **Daily Scrum**: Daily Scrum toplantılarının zamansal sebeplerden ötürü WhatsApp üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg veya word olarak Readme'de tarafımızdan paylaşılmaktadır: [Sprint 1 Daily Scrum Chats][takım91-DailyScrumMeetingNotesSprint1.docx](https://github.com/67MAK/Bootcamp/files/8647375/takim91-DailyScrumMeetingNotesSprint1.docx)
+
 
 - **Sprint board update**: Sprint board screenshotları: 
 
