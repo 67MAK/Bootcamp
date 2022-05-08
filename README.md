@@ -36,7 +36,7 @@ Takım 91
 
 ## Product Backlog URL
 
-[Miro Backlog Board]
+[Miro Backlog Board](https://trello.com/b/cXXF4iaZ/takım91-plan)
 
 ---
 
