@@ -38,7 +38,7 @@ Takım 91
 
 [Trello Backlog Board](https://trello.com/b/cXXF4iaZ/takım91-plan)
 
-[Miro Backlog Board] (https://miro.com/app/board/uXjVO21vkxw=/?share_link_id=168662773414)
+[Miro Backlog Board](https://miro.com/app/board/uXjVO21vkxw=/?share_link_id=168662773414)
 
 
 ---
