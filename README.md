@@ -38,6 +38,9 @@ Takım 91
 
 [Trello Backlog Board](https://trello.com/b/cXXF4iaZ/takım91-plan)
 
+https://miro.com/app/board/uXjVO21vkxw=/?share_link_id=168662773414
+
+
 ---
 
 # Sprint 1
