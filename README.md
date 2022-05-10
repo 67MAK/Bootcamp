@@ -34,11 +34,11 @@ Takım 91
 - Uzay temalı oyunlara ilgi duyanlar
 - 7+ yaş kullanıcılar
 
-## Projenin Tamamında Tüketeceğimiz Proje Puanı=380
-
 ## Product Backlog URL
 
 [Trello Backlog Board](https://trello.com/b/cXXF4iaZ/takım91-plan)
+
+[Miro Board-BurnDown Chart](https://miro.com/app/board/uXjVO21vkxw=/?share_link_id=487650318162)
 
 ---
 
