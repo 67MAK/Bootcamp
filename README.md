@@ -40,6 +40,8 @@ Takım 91
 
 [Miro Backlog Board](https://miro.com/app/board/uXjVO21vkxw=/?share_link_id=168662773414)
 
+[Product Updates Drive Link](https://drive.google.com/drive/folders/1qNJJEkgkjtZEo-bAAXLHdBH9VzKfUJfZ?usp=sharing)
+
 ## Toplam Proje Puanı=380
 
 ---
