@@ -38,7 +38,7 @@ Takım 91
 
 [Product Updates Drive Link](https://drive.google.com/drive/folders/1qNJJEkgkjtZEo-bAAXLHdBH9VzKfUJfZ?usp=sharing)
 
-## Toplam Proje Puanı=200
+## Toplam Proje Puanı=200 (yeni proje)
 
 ---
 
@@ -106,8 +106,6 @@ Sprint Review katılımcıları: Tüm ekip
 
 # Sprint 2
 
-# Sprint 1
-
 - **Sprint Notları**: •	Proje bir oyun projesi olduğundan, kullanıcı hikâyeleri yerine bir oyun tasarımı dökümanı oluşturmanın daha verimli olacağını düşünüldü. (Son sayfaya eklendi.)
 
 
@@ -129,6 +127,9 @@ Sprint Review katılımcıları: Tüm ekip
   - Ekipteki bir üyenin iş yoğunluğunun tahminlerin üstünde artması dolayısıyla görev dağılımı düzenlenmeli.
   -	Üniversitelerin final haftaları sebebiyle sprintler arası görev değişimi ya da görevin basitleştirilmesi gibi esnekliklerin sağlanmasına karar verildi.
  - Game Design Document taslağı düzenlenip son hali eklenmeli. 
+
+**Game Design Document**
+- will be written here later.
 
 ---
 
