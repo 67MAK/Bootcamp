@@ -6,9 +6,8 @@ Takım 91
 
 ## Takım Elemanları
 
-- Muhammed Ali Kurtulbaş: Product Owner
-- Ayşegül Soybilge: Scrum Master
-- Esra Dağ: 3D Artist
+- Muhammed Ali Kurtulbaş: Product Owner, Game&ui developer, game designer
+- Ayşegül Soybilge: Scrum Master, Game&ui designer, 3d Artist
 - Berk Agat: Developer
 
 ## Ürün İsmi
@@ -17,32 +16,29 @@ Takım 91
 
 ## Ürün Açıklaması
 
-- Bu oyunumuz ile bir zamanlar epey popüler olmuş Tower Defense türündeki oyunları tekrar oyuncuların beğenisine sunacağız. Çeşitli düşmanları farklı silah türleri ile durdurmayı uzay atmosferi ile birleştirecek oyunumuz, oyunculara keyifli aksiyon anları yaşatacak ve stratejiye doyuracak.
+- Bu younumuz rahatlatıcı etkisiyle bilinen süreye bağlı liderlik sıralaması sunan bir eşleştirme oyunu, session sonunda tamamlanan puzzle kişiselleştirilebilir nft olarak kullanıcılara sunulmakta.
 
 ## Ürün Özellikleri
 
-- Düşman ve silah çeşitliliği bakımından zengin
+- Leaderboard ile sıralama
 - Görsel anlamda oyuncuyu tatmin eden
-- Kolay ve anlaşılır oynanış
+- Pop Art ve Modern Artı birleştiren yenilikçi yaklaşım
 - Kullanıcı dostu arayüz
 
 ## Hedef Kitle
 
 - Mobil kullanıcıları
 - Oyun severler
-- Aksiyon ve Strateji severler
-- Uzay temalı oyunlara ilgi duyanlar
+- NFT'ye ilgi duyanlar
 - 7+ yaş kullanıcılar
 
 ## Product Backlog URL
 
-[Trello Backlog Board](https://trello.com/b/cXXF4iaZ/takım91-plan)
-
-[Miro Backlog Board](https://miro.com/app/board/uXjVO21vkxw=/?share_link_id=168662773414)
+[Trello Backlog Board](https://trello.com/invite/b/VvRlKenv/27e7c3cee1b0c2de208910c4b603f5c6/yeni-takim-91))
 
 [Product Updates Drive Link](https://drive.google.com/drive/folders/1qNJJEkgkjtZEo-bAAXLHdBH9VzKfUJfZ?usp=sharing)
 
-## Toplam Proje Puanı=380
+## Toplam Proje Puanı=200
 
 ---
 
@@ -110,6 +106,29 @@ Sprint Review katılımcıları: Tüm ekip
 
 # Sprint 2
 
+# Sprint 1
+
+- **Sprint Notları**: •	Proje bir oyun projesi olduğundan, kullanıcı hikâyeleri yerine bir oyun tasarımı dökümanı oluşturmanın daha verimli olacağını düşünüldü. (Son sayfaya eklendi.)
+
+
+- **Sprint içinde tamamlanması tahmin edilen puan**: 100 puan
+
+- **Puan tamamlama mantığı**: •	2. sprintte projemizin değişmesi sebebiyle ve 1. sprintten birbirimizin çalışma mantığını anlamamız sebebiyle temelde development ve design olarak iş bölümü gerçekleştirdik.
+
+- **Backlog düzeni ve Story seçimleri**: Backlog bireysel yeterliliklere göre önceliklendirildi, user story için de oyun tasarımı dökümanı oluşturuldu. Dolayısıyla Trello Board’daki tüm itemlar bir göreve karşılık gelmekte.
+
+- **Daily Scrum**: Daily Scrum toplantılarının zamansal sebeplerden ötürü WhatsApp ve Slack üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği word olarak Readme'de tarafımızdan paylaşılmaktadır: [Sprint 1 Daily Scrum Chats][takım91-DailyScrumMeetingNotesSprint1.docx]
+  
+
+- **Sprint Review**: 
+Alınan kararlar: Tüm UI design elementleri, stil ve renk uyumu için oyunun 3D Art elementleri bittikten sonra çalışılmasına karar verildi. Bootcamp için üyelerce ayrılan bireysel zamanın artırılmasına karar verildi.
+Sprint 3 için sprint ortasında bir retrospective toplantısı planlandı.
+Sprint Review katılımcıları: Tüm ekip
+
+- **Sprint Retrospective:**
+  - Ekipteki bir üyenin iş yoğunluğunun tahminlerin üstünde artması dolayısıyla görev dağılımı düzenlenmeli.
+  -	Üniversitelerin final haftaları sebebiyle sprintler arası görev değişimi ya da görevin basitleştirilmesi gibi esnekliklerin sağlanmasına karar verildi.
+ - Game Design Document taslağı düzenlenip son hali eklenmeli. 
 
 ---
 
