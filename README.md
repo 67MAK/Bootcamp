@@ -34,9 +34,9 @@ Takım 91
 
 ## Product Backlog URL
 
-[Trello Backlog Board](https://trello.com/invite/b/VvRlKenv/27e7c3cee1b0c2de208910c4b603f5c6/yeni-takim-91))
+[Trello Backlog Board](https://trello.com/b/VvRlKenv/yeni-tak%C4%B1m-91)
 
-[Product Updates Drive Link](https://drive.google.com/drive/folders/1qNJJEkgkjtZEo-bAAXLHdBH9VzKfUJfZ?usp=sharing)
+[Product Backlog & Product Updates and Daily Scrum Drive Link](https://drive.google.com/drive/folders/10PYGqt_5mDUMsr5XHNS9kyYCT3bhfyBa?usp=sharing)
 
 ## Toplam Proje Puanı=200 (yeni proje)
 
