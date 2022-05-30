@@ -6,26 +6,29 @@ public class Level1Manager : MonoBehaviour
 {
     public static Level1Manager Instance;
 
-    [SerializeField] GameObject cubePrefab;
+    [SerializeField]
+    GameObject cubePrefab, timerObj, timesUpScreen, endGameScreen;
+    [SerializeField] public GameObject pauseScreen;
 
     GameObject[] _colorCubes = new GameObject[16];
+    GameObject[] _flippedCubes = new GameObject[16];
     GameObject[] _selectedCubes = new GameObject[2];
 
-    //[SerializeField] Text phasesLeftText;
 
     public Color[] _colorsOfCubes = new Color[16];
     Color[] colors = new Color[8];
 
     List<int> indexList = new List<int>();
+    public int[] _selectedIndex = new int[2];
 
     bool[] isCubeColored = new bool[16];
+    bool[] isCubeFlipped = new bool[16];
     public bool isColorHiding, canSelect;
 
     Vector3 instantiateAnchor = Vector3.zero;
 
     int colorCubesCount = 0, selectedCount = 0;
     int rand;
-    int phasesLeft = 3, totalPhases = 3;
 
     private void Awake()
     {
@@ -65,10 +68,10 @@ public class Level1Manager : MonoBehaviour
     IEnumerator CreateCubes()
     {
         canSelect = false;
-        //StartCoroutine(SetPhasesLeftText());
         for (int i = 0; i < 16; i++)
         {
             _colorCubes[i] = Instantiate(cubePrefab, instantiateAnchor, Quaternion.identity) as GameObject;
+            isCubeFlipped[i] = false;
             _colorCubes[i].name = "ColorCube" + i;
             _colorCubes[i].GetComponent<Level1MouseFeedback>()._index = i;
             indexList.Add(i);
@@ -108,16 +111,10 @@ public class Level1Manager : MonoBehaviour
         }
         yield return new WaitForSeconds(2f);
         HideColors();
-        /*if (phasesLeft == totalPhases)
-        {
-            timerObj.SetActive(true);
-            phasesLeftTextObj.SetActive(true);
-            Timer.Instance.SetDuration(2f, 30f);
-        }
-        else
-        {
-            Timer.Instance.StartTimer();
-        }*/
+
+        timerObj.SetActive(true);
+        Timer.Instance.SetDuration(1f, 0f);
+        Timer.Instance.StartTimer();
     }
     void HideColors()
     {
@@ -156,6 +153,7 @@ public class Level1Manager : MonoBehaviour
         if (selectedCount < 2)
         {
             _selectedCubes[selectedCount] = _colorCubes[selectedIndex];
+            _selectedIndex[selectedCount] = selectedIndex;
             selectedCount++;
             if (selectedCount == 2)
             {
@@ -183,25 +181,23 @@ public class Level1Manager : MonoBehaviour
     void MatchCorrect()
     {
         Debug.Log("Match Correct");
-        //////////////////Level1Calculator.Instance.Score += 50f;
-        _selectedCubes[0].AddComponent<Rigidbody>();
-        _selectedCubes[0].GetComponent<Rigidbody>().AddForce(Vector3.up * 150f);
-        _selectedCubes[1].AddComponent<Rigidbody>();
-        _selectedCubes[1].GetComponent<Rigidbody>().AddForce(Vector3.up * 150f);
-        Destroy(_selectedCubes[0], 2f);
-        Destroy(_selectedCubes[1], 2f);
+        Level1Calculator.Instance.Score += 50f;
+        StartCoroutine(FlipSelectedCubes());
+        _flippedCubes[_selectedIndex[0]] = _colorCubes[_selectedIndex[0]];
+        _flippedCubes[_selectedIndex[1]] = _colorCubes[_selectedIndex[1]];
+        _colorCubes[_selectedIndex[0]] = null;
+        _colorCubes[_selectedIndex[1]] = null;
         colorCubesCount -= 2;
         if (colorCubesCount == 0)
         {
-            /////////////////////Timer.Instance.StopTimer();
+            Timer.Instance.StopTimer();
             Invoke("EndGameProcess", 1f);
         }
-        Invoke("SetCanSelect", 0.5f);
     }
     void MatchWrong()
     {
         Debug.Log("Match Wrong");
-        /*Level1Calculator.Instance.wrongSelectCount++;
+        Level1Calculator.Instance.wrongSelectCount++;
         if (Level1Calculator.Instance.Score > 30f)
         {
             Level1Calculator.Instance.Score -= 30f;
@@ -210,20 +206,44 @@ public class Level1Manager : MonoBehaviour
         {
             Level1Calculator.Instance.Score = 0;
         }
-        */
+        
         Invoke("HideSelectedColors", 1f);
         Invoke("SetCanSelect", 1.1f);
     }
+    IEnumerator FlipSelectedCubes()
+    {
+        canSelect = false;
+        int count = 0;
+        while(count < 18)
+        {
+            _selectedCubes[0].gameObject.transform.Rotate(0, 0, -10);
+            _selectedCubes[1].gameObject.transform.Rotate(0, 0, -10);
+            count++;
+            yield return new WaitForSeconds(0.05f);
+        }
+        _selectedCubes[0].gameObject.transform.position += new Vector3(0, -0.3f, 0);
+        _selectedCubes[1].gameObject.transform.position += new Vector3(0, -0.3f, 0);
+        _selectedCubes[0].gameObject.transform.localScale += new Vector3(0.25f, 0, 0.25f);
+        _selectedCubes[1].gameObject.transform.localScale += new Vector3(0.25f, 0, 0.25f);
+        _selectedCubes[0].GetComponent<MeshRenderer>().material.color = Color.white;
+        _selectedCubes[1].GetComponent<MeshRenderer>().material.color = Color.white;
+        SetCanSelect();
+    }
 
+    public void TimesUpProcess()
+    {
+        timesUpScreen.SetActive(true);
+        Time.timeScale = 0f;
+    }
     void EndGameProcess()
     {
         Debug.Log("Game Ended...!!!");
         Time.timeScale = 0f;
-        /////endGameScreen.SetActive(true);
-        /////Level1Calculator.Instance.SetEndGameText();
+        endGameScreen.SetActive(true);
+        Level1Calculator.Instance.SetEndGameText();
     }
 
-    void SetCanSelect()
+    public void SetCanSelect()
     {
         canSelect = true;
     }
