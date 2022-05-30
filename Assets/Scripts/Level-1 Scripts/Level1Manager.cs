@@ -19,7 +19,7 @@ public class Level1Manager : MonoBehaviour
     Color[] colors = new Color[8];
 
     List<int> indexList = new List<int>();
-    public int[] _selectedIndex = new int[2];
+    int[] _selectedIndex = new int[2];
 
     bool[] isCubeColored = new bool[16];
     bool[] isCubeFlipped = new bool[16];
@@ -239,6 +239,7 @@ public class Level1Manager : MonoBehaviour
     {
         Debug.Log("Game Ended...!!!");
         Time.timeScale = 0f;
+        canSelect = false;
         endGameScreen.SetActive(true);
         Level1Calculator.Instance.SetEndGameText();
     }
