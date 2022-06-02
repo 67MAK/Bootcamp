@@ -39,4 +39,9 @@ public class Level1MenuManager : MonoBehaviour
         Time.timeScale = 1f;
         Level1Manager.Instance.Invoke("SetCanSelect", 0.5f);
     }
+    public void NextLevelButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Time.timeScale = 1f;
+    }
 }
