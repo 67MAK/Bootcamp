@@ -5,7 +5,7 @@ using UnityEngine;
 public class Level1MouseFeedback : MonoBehaviour
 {
     Renderer _renderer;
-
+    public bool isFlipped;
     public int _index;
 
     void Start()
@@ -23,8 +23,11 @@ public class Level1MouseFeedback : MonoBehaviour
         Debug.Log(Level1Manager.Instance.canSelect);
         if (Level1Manager.Instance.canSelect && Level1Manager.Instance.isColorHiding)
         {
-            _renderer.material.color = Level1Manager.Instance._colorsOfCubes[_index];
-            Level1Manager.Instance.CubeSelect(_index);
+            if (!isFlipped)
+            {
+                _renderer.material.color = Level1Manager.Instance._colorsOfCubes[_index];
+                Level1Manager.Instance.CubeSelect(_index);
+            }
         }
     }
 }

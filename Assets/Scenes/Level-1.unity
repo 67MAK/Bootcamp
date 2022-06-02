@@ -305,7 +305,6 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
-  _selectedIndex: 0000000000000000
   isColorHiding: 0
   canSelect: 0
 --- !u!4 &441704501
@@ -1277,6 +1276,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4414701397541937233, guid: a08af111e8112064692f023d65b70597, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 245687477}
+    - target: {fileID: 6033048712694097388, guid: a08af111e8112064692f023d65b70597, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 245687477}
