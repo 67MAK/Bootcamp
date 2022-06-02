@@ -153,22 +153,22 @@ public class Level2Manager : MonoBehaviour
 
     public void CubeSelect(int selectedIndex)
     {
-        if (selectedCount < 2)
+        Debug.Log("selectedCount before if : " + selectedCount);
+        if(selectedCount == 0)
         {
             _selectedCubes[selectedCount] = _colorCubes[selectedIndex];
             _selectedIndex[selectedCount] = selectedIndex;
             selectedCount++;
-            if (selectedCount == 2)
-            {
-                selectedCount = 0;
-                canSelect = false;
-                CheckColor();
-            }
         }
-        else
+        else if(selectedCount == 1 && _selectedCubes[0].GetComponent<Level2MouseFeedback>()._index != selectedIndex)
         {
+            _selectedCubes[selectedCount] = _colorCubes[selectedIndex];
+            _selectedIndex[selectedCount] = selectedIndex;
             selectedCount = 0;
+            canSelect = false;
+            CheckColor();
         }
+        Debug.Log("selectedCount after if : " + selectedCount);
     }
     void CheckColor()
     {
@@ -189,6 +189,8 @@ public class Level2Manager : MonoBehaviour
         StartCoroutine(FlipSelectedCubes());
         _flippedCubes[_selectedIndex[0]] = _colorCubes[_selectedIndex[0]];
         _flippedCubes[_selectedIndex[1]] = _colorCubes[_selectedIndex[1]];
+        _flippedCubes[_selectedIndex[0]].GetComponent<Level2MouseFeedback>().isFlipped = true;
+        _flippedCubes[_selectedIndex[1]].GetComponent<Level2MouseFeedback>().isFlipped = true;
         _colorCubes[_selectedIndex[0]] = null;
         _colorCubes[_selectedIndex[1]] = null;
         colorCubesCount -= 2;

@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class Level2MouseFeedback : MonoBehaviour
 {
+    public static Level2MouseFeedback Instance;
     Renderer _renderer;
-
+    public bool isFlipped;
     public int _index;
 
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+    }
     void Start()
     {
         _renderer = GetComponent<Renderer>();
@@ -23,8 +31,11 @@ public class Level2MouseFeedback : MonoBehaviour
         Debug.Log(Level2Manager.Instance.canSelect);
         if (Level2Manager.Instance.canSelect && Level2Manager.Instance.isColorHiding)
         {
-            _renderer.material.color = Level2Manager.Instance._colorsOfCubes[_index];
-            Level2Manager.Instance.CubeSelect(_index);
+            if (!isFlipped)
+            {
+                _renderer.material.color = Level2Manager.Instance._colorsOfCubes[_index];
+                Level2Manager.Instance.CubeSelect(_index);
+            }
         }
     }
 }
