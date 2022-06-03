@@ -19,7 +19,10 @@ public class Level2MenuManager : MonoBehaviour
 
     public void PauseButton()
     {
-        Level2Manager.Instance.PauseGameProcess();
+        if (!Level2Manager.Instance.gameEnded)
+        {
+            Level2Manager.Instance.PauseGameProcess();
+        }
     }
 
     public void MainMenuButton()
@@ -41,7 +44,7 @@ public class Level2MenuManager : MonoBehaviour
     }
     public void ShowColorsButton()
     {
-        if (Level2Manager.Instance.isColorHiding)
+        if (Level2Manager.Instance.isColorHiding && !Level2Manager.Instance.gameEnded)
         {
             StartCoroutine(Level2Calculator.Instance.ShowColorProcess());
         }

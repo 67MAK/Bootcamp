@@ -17,9 +17,10 @@ public class Level1MenuManager : MonoBehaviour
 
     public void PauseButton()
     {
-        Level1Manager.Instance.canSelect = false;
-        Time.timeScale = 0f;
-        Level1Manager.Instance.pauseScreen.SetActive(true);
+        if (!Level1Manager.Instance.gameEnded)
+        {
+            Level1Manager.Instance.PauseGameProcess();
+        }
     }
 
     public void MainMenuButton()

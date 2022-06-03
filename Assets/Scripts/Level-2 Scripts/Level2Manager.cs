@@ -22,7 +22,7 @@ public class Level2Manager : MonoBehaviour
     int[] _selectedIndex = new int[2];
 
     bool[] isCubeColored = new bool[30];
-    public bool isColorHiding, canSelect;
+    public bool isColorHiding, canSelect, gameEnded;
 
     Vector3 instantiateAnchor = Vector3.zero;
 
@@ -197,7 +197,7 @@ public class Level2Manager : MonoBehaviour
         if (colorCubesCount == 0)
         {
             Timer.Instance.StopTimer();
-            Invoke("EndGameProcess", 1f);
+            Invoke("EndGameProcess", 2f);
         }
     }
     void MatchWrong()
@@ -253,6 +253,7 @@ public class Level2Manager : MonoBehaviour
     void EndGameProcess()
     {
         Debug.Log("Game Ended...!!!");
+        gameEnded = true;
         Time.timeScale = 0f;
         canSelect = false;
         endGameScreen.SetActive(true);

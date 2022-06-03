@@ -23,7 +23,7 @@ public class Level1Manager : MonoBehaviour
 
     bool[] isCubeColored = new bool[16];
     bool[] isCubeFlipped = new bool[16];
-    public bool isColorHiding, canSelect;
+    public bool isColorHiding, canSelect, gameEnded;
 
     Vector3 instantiateAnchor = Vector3.zero;
 
@@ -191,7 +191,7 @@ public class Level1Manager : MonoBehaviour
         if (colorCubesCount == 0)
         {
             Timer.Instance.StopTimer();
-            Invoke("EndGameProcess", 1f);
+            Invoke("EndGameProcess", 2f);
         }
     }
     void MatchWrong()
@@ -235,9 +235,16 @@ public class Level1Manager : MonoBehaviour
         timesUpScreen.SetActive(true);
         Time.timeScale = 0f;
     }
+    public void PauseGameProcess()
+    {
+        canSelect = false;
+        Time.timeScale = 0f;
+        pauseScreen.SetActive(true);
+    }
     void EndGameProcess()
     {
         Debug.Log("Game Ended...!!!");
+        gameEnded = true;
         Time.timeScale = 0f;
         canSelect = false;
         endGameScreen.SetActive(true);
