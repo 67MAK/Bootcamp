@@ -39,4 +39,11 @@ public class Level2MenuManager : MonoBehaviour
         Time.timeScale = 1f;
         Level2Manager.Instance.Invoke("SetCanSelect", 0.5f);
     }
+    public void ShowColorsButton()
+    {
+        if (Level2Manager.Instance.isColorHiding)
+        {
+            StartCoroutine(Level2Calculator.Instance.ShowColorProcess());
+        }
+    }
 }

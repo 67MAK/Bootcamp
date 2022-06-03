@@ -6,9 +6,9 @@ public class Level2Calculator : MonoBehaviour
 {
     public static Level2Calculator Instance;
 
-    [SerializeField] Text wrongSelectText, timeLeftText, scoreText;
+    [SerializeField] Text wrongSelectText, timeLeftText, scoreText, showColorCountLeftText;
     public float Score = 0;
-    public int wrongSelectCount = 0;
+    public int wrongSelectCount = 0, showColorHintCount = 2;
 
     private void Awake()
     {
@@ -21,6 +21,7 @@ public class Level2Calculator : MonoBehaviour
     void CalculateScore()
     {
         Score += Timer.Instance.GetDuration() * 10;
+
         if (wrongSelectCount == 0)
         {
             Score += 1000f;
@@ -34,6 +35,11 @@ public class Level2Calculator : MonoBehaviour
         {
             if (Score > 120f) Score -= 120f;
             else if (Score <= 120f) Score = 0f;
+        }
+
+        if(showColorHintCount > 0)
+        {
+            Score += showColorHintCount * 150f;
         }
     }
     public void SetEndGameText()
@@ -49,5 +55,24 @@ public class Level2Calculator : MonoBehaviour
             timeLeftText.text = "Time Left : 0" + Timer.Instance.durationMinute + ":0" + Timer.Instance.durationSecond;
         }
         scoreText.text = "Total Score : " + Score;
+    }
+
+    public IEnumerator ShowColorProcess()
+    {
+        if(showColorHintCount == 0)
+        {
+            showColorCountLeftText.color = Color.red;
+            showColorCountLeftText.text = "No Left";
+            yield return new WaitForSeconds(1f);
+            showColorCountLeftText.color = Color.black;
+        }
+        else
+        {
+            Level2Manager.Instance.ShowColors();
+            yield return new WaitForSeconds(3f);
+            Level2Manager.Instance.HideColors();
+            showColorHintCount--;
+            showColorCountLeftText.text = "Left : " + showColorHintCount;
+        }
     }
 }

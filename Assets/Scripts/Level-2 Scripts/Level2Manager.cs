@@ -120,7 +120,7 @@ public class Level2Manager : MonoBehaviour
         Timer.Instance.SetDuration(2f, 0f);
         Timer.Instance.StartTimer();
     }
-    void HideColors()
+    public void HideColors()
     {
         for (int i = 0; i < isCubeColored.Length; i++)
         {
@@ -138,8 +138,10 @@ public class Level2Manager : MonoBehaviour
         _selectedCubes[0].GetComponent<MeshRenderer>().material.color = Color.white;
         _selectedCubes[1].GetComponent<MeshRenderer>().material.color = Color.white;
     }
-    void ShowColors()
+    public void ShowColors()
     {
+        isColorHiding = false;
+        canSelect = false;
         for (int i = 0; i < _colorCubes.Length; i++)
         {
             if (isCubeColored[i] && _colorCubes[i] != null)
@@ -147,8 +149,6 @@ public class Level2Manager : MonoBehaviour
                 _colorCubes[i].GetComponent<MeshRenderer>().material.color = _colorsOfCubes[i];
             }
         }
-        isColorHiding = false;
-        canSelect = false;
     }
 
     public void CubeSelect(int selectedIndex)
