@@ -6,7 +6,7 @@ public class Level3Manager : MonoBehaviour
 {
     public static Level3Manager Instance;
     [SerializeField]
-    GameObject cubePrefab; //timerObj, timesUpScreen, endGameScreen;
+    GameObject cubePrefab, timerObj, timesUpScreen, endGameScreen;
     [SerializeField] public GameObject pauseScreen;
 
     GameObject[] _colorCubes = new GameObject[42];
@@ -15,7 +15,7 @@ public class Level3Manager : MonoBehaviour
 
 
     public Color[] _colorsOfCubes = new Color[42];
-    Color[] colors = new Color[15];
+    Color[] colors = new Color[14];
 
     List<int> indexList = new List<int>();
     int[] _selectedIndex = new int[3];
@@ -52,14 +52,20 @@ public class Level3Manager : MonoBehaviour
         colors[11] = new Color(0.392f, 0f, 0.392f);
         colors[12] = new Color(0f, 0.392f, 0f);
         colors[13] = new Color(0f, 0f, 0.431f);
-        colors[14] = new Color(0.353f, 0.353f, 0.353f);
         StartCoroutine(CreateCubes());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            ShowColors();
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            HideColors();
+        }
     }
 
     IEnumerator CreateCubes()
@@ -86,6 +92,7 @@ public class Level3Manager : MonoBehaviour
     IEnumerator SetColors()
     {
         int setIndex, k = 0, colorIndex = 0;
+        Debug.Log(indexList.Count);
         while (indexList.Count > 0)
         {
             rand = Random.Range(0, (indexList.Count - 1));
@@ -97,7 +104,7 @@ public class Level3Manager : MonoBehaviour
                 isCubeColored[setIndex] = true;
                 indexList.RemoveAt(rand);
                 k++;
-                if (k == 2)
+                if (k == 3)
                 {
                     k = 0;
                     colorIndex++;
@@ -106,11 +113,181 @@ public class Level3Manager : MonoBehaviour
             yield return new WaitForSeconds(0.15f);
         }
         yield return new WaitForSeconds(2f);
-        //HideColors();
+        HideColors();
 
         /*timerObj.SetActive(true);
         Timer.Instance.SetDuration(2f, 0f);
         Timer.Instance.StartTimer();*/
+    }
+
+    public void HideColors()
+    {
+        for (int i = 0; i < isCubeColored.Length; i++)
+        {
+            if (isCubeColored[i] && _colorCubes[i] != null)
+            {
+                _colorCubes[i].GetComponent<MeshRenderer>().material.color = new Color(1f, 1f, 1f);
+            }
+        }
+        isColorHiding = true;
+        SetCanSelect();
+
+    }
+    void HideSelectedColors()
+    {
+        _selectedCubes[0].GetComponent<MeshRenderer>().material.color = Color.white;
+        _selectedCubes[1].GetComponent<MeshRenderer>().material.color = Color.white;
+    }
+    public void ShowColors()
+    {
+        isColorHiding = false;
+        canSelect = false;
+        for (int i = 0; i < _colorCubes.Length; i++)
+        {
+            if (isCubeColored[i] && _colorCubes[i] != null)
+            {
+                _colorCubes[i].GetComponent<MeshRenderer>().material.color = _colorsOfCubes[i];
+            }
+        }
+    }
+
+    public void CubeSelect(int selectedIndex)
+    {
+        if (selectedCount == 0)
+        {
+            _selectedCubes[selectedCount] = _colorCubes[selectedIndex];
+            _selectedIndex[selectedCount] = selectedIndex;
+            selectedCount++;
+        }
+        else if (selectedCount == 1 && _selectedCubes[0].GetComponent<Level3MouseFeedback>()._index != selectedIndex)
+        {
+            _selectedCubes[selectedCount] = _colorCubes[selectedIndex];
+            _selectedIndex[selectedCount] = selectedIndex;
+            selectedCount++;
+        }
+        else if(selectedCount == 2 && _selectedCubes[1].GetComponent<Level3MouseFeedback>()._index != selectedIndex)
+        {
+            _selectedCubes[selectedCount] = _colorCubes[selectedIndex];
+            _selectedIndex[selectedCount] = selectedIndex;
+            selectedCount = 0;
+            canSelect = false;
+            CheckColor();
+        }
+    }
+    void CheckColor()
+    {
+        bool areColorsMatch = true;
+
+        if(_selectedCubes[0].GetComponent<MeshRenderer>().material.color != _selectedCubes[1].GetComponent<MeshRenderer>().material.color)
+            areColorsMatch = false;
+        if(_selectedCubes[0].GetComponent<MeshRenderer>().material.color != _selectedCubes[2].GetComponent<MeshRenderer>().material.color)
+            areColorsMatch = false;
+        if(_selectedCubes[1].GetComponent<MeshRenderer>().material.color != _selectedCubes[2].GetComponent<MeshRenderer>().material.color)
+            areColorsMatch = false;
+
+        if (areColorsMatch)
+        {
+            MatchCorrect();
+        }
+        else
+        {
+            MatchWrong();
+        }
+    }
+
+    void MatchCorrect()
+    {
+        Debug.Log("Match Correct");
+        int i = 0;
+        ///////////Level3Calculator.Instance.Score += 50f;
+        StartCoroutine(FlipSelectedCubes());
+        /*_flippedCubes[_selectedIndex[0]] = _colorCubes[_selectedIndex[0]];
+        _flippedCubes[_selectedIndex[1]] = _colorCubes[_selectedIndex[1]];
+        _flippedCubes[_selectedIndex[2]] = _colorCubes[_selectedIndex[2]];*/
+        foreach (GameObject obj in _flippedCubes)
+        {
+            _flippedCubes[_selectedIndex[i]] = _colorCubes[_selectedIndex[i]];
+            obj.GetComponent<Level3MouseFeedback>().isFlipped = true;
+            i++;
+        }
+        /*_flippedCubes[_selectedIndex[0]].GetComponent<Level3MouseFeedback>().isFlipped = true;
+        _flippedCubes[_selectedIndex[1]].GetComponent<Level3MouseFeedback>().isFlipped = true;
+        _flippedCubes[_selectedIndex[2]].GetComponent<Level3MouseFeedback>().isFlipped = true;*/
+        _colorCubes[_selectedIndex[0]] = null;
+        _colorCubes[_selectedIndex[1]] = null;
+        _colorCubes[_selectedIndex[2]] = null;
+        colorCubesCount -= 2;
+        if (colorCubesCount == 0)
+        {
+            Timer.Instance.StopTimer();
+            Invoke("EndGameProcess", 2f);
+        }
+    }
+    void MatchWrong()
+    {
+        Debug.Log("Match Wrong");
+        /*Level3Calculator.Instance.wrongSelectCount++;
+        if (Level3Calculator.Instance.Score > 30f)
+        {
+            Level3Calculator.Instance.Score -= 30f;
+        }
+        else if (Level3Calculator.Instance.Score <= 30f)
+        {
+            Level3Calculator.Instance.Score = 0;
+        }*/
+
+        Invoke("HideSelectedColors", 1f);
+        Invoke("SetCanSelect", 1.1f);
+    }
+
+    IEnumerator FlipSelectedCubes()
+    {
+        canSelect = false;
+        int count = 0, i = 0;
+        while (count < 18)
+        {
+            _selectedCubes[0].gameObject.transform.Rotate(0, 0, -10);
+            _selectedCubes[1].gameObject.transform.Rotate(0, 0, -10);
+            _selectedCubes[2].gameObject.transform.Rotate(0, 0, -10);
+            count++;
+            yield return new WaitForSeconds(0.05f);
+        }
+        foreach(GameObject obj in _selectedCubes)
+        {
+            obj.gameObject.transform.position += new Vector3(0, -0.3f, 0);
+            obj.gameObject.transform.localScale += new Vector3(0.25f, 0, 0.25f);
+            obj.gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
+        }
+        _selectedCubes[0].gameObject.transform.position += new Vector3(0, -0.3f, 0);
+        _selectedCubes[1].gameObject.transform.position += new Vector3(0, -0.3f, 0);
+        _selectedCubes[0].gameObject.transform.localScale += new Vector3(0.25f, 0, 0.25f);
+        _selectedCubes[1].gameObject.transform.localScale += new Vector3(0.25f, 0, 0.25f);
+        _selectedCubes[0].GetComponent<MeshRenderer>().material.color = Color.white;
+        _selectedCubes[1].GetComponent<MeshRenderer>().material.color = Color.white;
+        SetCanSelect();
+    }
+
+
+    public void TimesUpProcess()
+    {
+        timesUpScreen.SetActive(true);
+        canSelect = false;
+        Time.timeScale = 0f;
+    }
+    public void PauseGameProcess()
+    {
+        canSelect = false;
+        Time.timeScale = 0f;
+        pauseScreen.SetActive(true);
+    }
+    void EndGameProcess()
+    {
+        Debug.Log("Game Ended...!!!");
+        gameEnded = true;
+        Time.timeScale = 0f;
+        canSelect = false;
+        endGameScreen.SetActive(true);
+        //////////Level3Calculator.Instance.SetEndGameText();
     }
 
 
