@@ -6,7 +6,7 @@ public class Level3Manager : MonoBehaviour
 {
     public static Level3Manager Instance;
     [SerializeField]
-    GameObject cubePrefab, timerObj, timesUpScreen, endGameScreen;
+    GameObject cubePrefab, timerObj, timesUpScreen, endGameScreen, guideText;
     [SerializeField] public GameObject pauseScreen;
 
     GameObject[] _colorCubes = new GameObject[42];
@@ -114,10 +114,10 @@ public class Level3Manager : MonoBehaviour
         }
         yield return new WaitForSeconds(2f);
         HideColors();
-
-        /*timerObj.SetActive(true);
+        guideText.SetActive(false);
+        timerObj.SetActive(true);
         Timer.Instance.SetDuration(2f, 0f);
-        Timer.Instance.StartTimer();*/
+        Timer.Instance.StartTimer();
     }
 
     public void HideColors()
@@ -135,8 +135,10 @@ public class Level3Manager : MonoBehaviour
     }
     void HideSelectedColors()
     {
-        _selectedCubes[0].GetComponent<MeshRenderer>().material.color = Color.white;
-        _selectedCubes[1].GetComponent<MeshRenderer>().material.color = Color.white;
+        foreach(GameObject obj in _selectedCubes)
+        {
+            obj.GetComponent<MeshRenderer>().material.color = Color.white;
+        }
     }
     public void ShowColors()
     {
@@ -165,7 +167,7 @@ public class Level3Manager : MonoBehaviour
             _selectedIndex[selectedCount] = selectedIndex;
             selectedCount++;
         }
-        else if(selectedCount == 2 && _selectedCubes[1].GetComponent<Level3MouseFeedback>()._index != selectedIndex)
+        else if(selectedCount == 2 && _selectedCubes[1].GetComponent<Level3MouseFeedback>()._index != selectedIndex && _selectedCubes[0].GetComponent<Level3MouseFeedback>()._index != selectedIndex)
         {
             _selectedCubes[selectedCount] = _colorCubes[selectedIndex];
             _selectedIndex[selectedCount] = selectedIndex;
@@ -198,25 +200,19 @@ public class Level3Manager : MonoBehaviour
     void MatchCorrect()
     {
         Debug.Log("Match Correct");
-        int i = 0;
-        ///////////Level3Calculator.Instance.Score += 50f;
+        Level3Calculator.Instance.Score += 50f;
         StartCoroutine(FlipSelectedCubes());
-        /*_flippedCubes[_selectedIndex[0]] = _colorCubes[_selectedIndex[0]];
-        _flippedCubes[_selectedIndex[1]] = _colorCubes[_selectedIndex[1]];
-        _flippedCubes[_selectedIndex[2]] = _colorCubes[_selectedIndex[2]];*/
-        foreach (GameObject obj in _flippedCubes)
+
+        for(int i = 0; i < 3; i++)
         {
             _flippedCubes[_selectedIndex[i]] = _colorCubes[_selectedIndex[i]];
-            obj.GetComponent<Level3MouseFeedback>().isFlipped = true;
-            i++;
+            _flippedCubes[_selectedIndex[i]].GetComponent<Level3MouseFeedback>().isFlipped = true;
         }
-        /*_flippedCubes[_selectedIndex[0]].GetComponent<Level3MouseFeedback>().isFlipped = true;
-        _flippedCubes[_selectedIndex[1]].GetComponent<Level3MouseFeedback>().isFlipped = true;
-        _flippedCubes[_selectedIndex[2]].GetComponent<Level3MouseFeedback>().isFlipped = true;*/
+
         _colorCubes[_selectedIndex[0]] = null;
         _colorCubes[_selectedIndex[1]] = null;
         _colorCubes[_selectedIndex[2]] = null;
-        colorCubesCount -= 2;
+        colorCubesCount -= 3;
         if (colorCubesCount == 0)
         {
             Timer.Instance.StopTimer();
@@ -226,7 +222,7 @@ public class Level3Manager : MonoBehaviour
     void MatchWrong()
     {
         Debug.Log("Match Wrong");
-        /*Level3Calculator.Instance.wrongSelectCount++;
+        Level3Calculator.Instance.wrongSelectCount++;
         if (Level3Calculator.Instance.Score > 30f)
         {
             Level3Calculator.Instance.Score -= 30f;
@@ -234,7 +230,7 @@ public class Level3Manager : MonoBehaviour
         else if (Level3Calculator.Instance.Score <= 30f)
         {
             Level3Calculator.Instance.Score = 0;
-        }*/
+        }
 
         Invoke("HideSelectedColors", 1f);
         Invoke("SetCanSelect", 1.1f);
@@ -243,7 +239,7 @@ public class Level3Manager : MonoBehaviour
     IEnumerator FlipSelectedCubes()
     {
         canSelect = false;
-        int count = 0, i = 0;
+        int count = 0;
         while (count < 18)
         {
             _selectedCubes[0].gameObject.transform.Rotate(0, 0, -10);
@@ -252,18 +248,13 @@ public class Level3Manager : MonoBehaviour
             count++;
             yield return new WaitForSeconds(0.05f);
         }
+
         foreach(GameObject obj in _selectedCubes)
         {
             obj.gameObject.transform.position += new Vector3(0, -0.3f, 0);
             obj.gameObject.transform.localScale += new Vector3(0.25f, 0, 0.25f);
             obj.gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
         }
-        _selectedCubes[0].gameObject.transform.position += new Vector3(0, -0.3f, 0);
-        _selectedCubes[1].gameObject.transform.position += new Vector3(0, -0.3f, 0);
-        _selectedCubes[0].gameObject.transform.localScale += new Vector3(0.25f, 0, 0.25f);
-        _selectedCubes[1].gameObject.transform.localScale += new Vector3(0.25f, 0, 0.25f);
-        _selectedCubes[0].GetComponent<MeshRenderer>().material.color = Color.white;
-        _selectedCubes[1].GetComponent<MeshRenderer>().material.color = Color.white;
         SetCanSelect();
     }
 
@@ -287,7 +278,7 @@ public class Level3Manager : MonoBehaviour
         Time.timeScale = 0f;
         canSelect = false;
         endGameScreen.SetActive(true);
-        //////////Level3Calculator.Instance.SetEndGameText();
+        Level3Calculator.Instance.SetEndGameText();
     }
 
 
