@@ -275,7 +275,7 @@ public class Level3Manager : MonoBehaviour
     {
         Debug.Log("Game Ended...!!!");
         gameEnded = true;
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         canSelect = false;
         endGameScreen.SetActive(true);
         Level3Calculator.Instance.SetEndGameText();

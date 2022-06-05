@@ -7,7 +7,9 @@ public class Level3Calculator : MonoBehaviour
 {
     public static Level3Calculator Instance;
 
+    [SerializeField] GameObject firstStarObj, secondStarObj, thirdStarObj;
     [SerializeField] Text wrongSelectText, timeLeftText, scoreText, showColorCountLeftText, countdownText;
+    bool firstStar, secondStar, thirdStar;
     public float Score = 0;
     public int wrongSelectCount = 0;
     int showColorHintCount = 3;
@@ -44,9 +46,16 @@ public class Level3Calculator : MonoBehaviour
             Score += showColorHintCount * 150f;
         }
     }
+    void CalculateStars()
+    {
+        if(Level3Manager.Instance.gameEnded) firstStar = true;
+        if(wrongSelectCount < 5) secondStar = true;
+        if(Timer.Instance.GetDuration() > 59f) thirdStar = true;
+    }
     public void SetEndGameText()
     {
         CalculateScore();
+        CalculateStars();
         wrongSelectText.text = "Wrong Selections : " + wrongSelectCount;
         if (Timer.Instance.durationSecond > 10)
         {
@@ -57,6 +66,17 @@ public class Level3Calculator : MonoBehaviour
             timeLeftText.text = "Time Left : 0" + Timer.Instance.durationMinute + ":0" + Timer.Instance.durationSecond;
         }
         scoreText.text = "Total Score : " + Score;
+        StartCoroutine(SetActiveStars());
+    }
+
+    IEnumerator SetActiveStars()
+    {
+        yield return new WaitForSeconds(1f);
+        if (firstStar) firstStarObj.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        if (secondStar) secondStarObj.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        if (thirdStar) thirdStarObj.SetActive(true);
     }
 
     public IEnumerator ShowColorProcess()
