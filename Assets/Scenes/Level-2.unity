@@ -277,6 +277,7 @@ MonoBehaviour:
   timerObj: {fileID: 209559625}
   timesUpScreen: {fileID: 331503805}
   endGameScreen: {fileID: 572884118}
+  guideText: {fileID: 2051717253}
   pauseScreen: {fileID: 951140550}
   _colorsOfCubes:
   - {r: 0, g: 0, b: 0, a: 0}
@@ -338,10 +339,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29297996c1a791a4994a6a773be4e020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstStarObj: {fileID: 597773055}
+  secondStarObj: {fileID: 597773054}
+  thirdStarObj: {fileID: 597773053}
   wrongSelectText: {fileID: 1355257134}
   timeLeftText: {fileID: 221543170}
   scoreText: {fileID: 39528563}
   showColorCountLeftText: {fileID: 1020231070}
+  countdownText: {fileID: 1214034941351394666}
   Score: 0
   wrongSelectCount: 0
   showColorHintCount: 2
@@ -649,6 +654,7 @@ RectTransform:
   - {fileID: 1282595915}
   - {fileID: 1881014069}
   - {fileID: 597773052}
+  - {fileID: 2051717254}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -664,6 +670,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 581300276}
     m_Modifications:
+    - target: {fileID: 63057581, guid: a08af111e8112064692f023d65b70597, type: 3}
+      propertyPath: m_Text
+      value: Leave 1 Minute Or More Time
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414701396379088836, guid: a08af111e8112064692f023d65b70597, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414701396991470708, guid: a08af111e8112064692f023d65b70597, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 4414701397029593150, guid: a08af111e8112064692f023d65b70597, type: 3}
       propertyPath: m_Name
       value: EndGameScreen
@@ -809,6 +827,21 @@ PrefabInstance:
 --- !u!224 &597773052 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4414701397029593151, guid: a08af111e8112064692f023d65b70597, type: 3}
+  m_PrefabInstance: {fileID: 597773051}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &597773053 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 184215748, guid: a08af111e8112064692f023d65b70597, type: 3}
+  m_PrefabInstance: {fileID: 597773051}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &597773054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1123535018, guid: a08af111e8112064692f023d65b70597, type: 3}
+  m_PrefabInstance: {fileID: 597773051}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &597773055 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 955467940, guid: a08af111e8112064692f023d65b70597, type: 3}
   m_PrefabInstance: {fileID: 597773051}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &637050305
@@ -1307,6 +1340,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 581300276}
     m_Modifications:
+    - target: {fileID: 643127897, guid: 6546770679b17b54aaa863d275c02f7f, type: 3}
+      propertyPath: m_Text
+      value: Leave 1 Minute Or More Time
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219503816, guid: 6546770679b17b54aaa863d275c02f7f, type: 3}
+      propertyPath: m_Text
+      value: There are 15 different colors and for each color there 2 cubes to match..!
+      objectReference: {fileID: 0}
     - target: {fileID: 792114103814706190, guid: 6546770679b17b54aaa863d275c02f7f, type: 3}
       propertyPath: m_Name
       value: PauseScreen
@@ -1458,6 +1499,85 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 792114103814706191, guid: 6546770679b17b54aaa863d275c02f7f, type: 3}
   m_PrefabInstance: {fileID: 1881014068}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2051717253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2051717254}
+  - component: {fileID: 2051717256}
+  - component: {fileID: 2051717255}
+  m_Layer: 5
+  m_Name: GuideText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2051717254
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051717253}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 581300276}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 690, y: 310}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &2051717255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051717253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 1
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 60
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: There are 15 different colors and for each color there 2 cubes to match..!
+--- !u!222 &2051717256
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051717253}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1214034941351394665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1559,3 +1679,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ab572d1bbd2f40bb96680ad21e882, type: 3}
+--- !u!114 &1214034941351394666 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1551918205350490090, guid: 1d1ab572d1bbd2f40bb96680ad21e882, type: 3}
+  m_PrefabInstance: {fileID: 1214034941351394665}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

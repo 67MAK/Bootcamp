@@ -7,7 +7,9 @@ public class Level1Calculator : MonoBehaviour
 {
     public static Level1Calculator Instance;
 
+    [SerializeField] GameObject firstStarObj, secondStarObj, thirdStarObj;
     [SerializeField] Text wrongSelectText, timeLeftText, scoreText;
+    bool firstStar, secondStar, thirdStar;
     public float Score = 0;
     public int wrongSelectCount = 0;
 
@@ -48,9 +50,17 @@ public class Level1Calculator : MonoBehaviour
             else if (Score <= 120f) Score = 0f;
         }
     }
+    void CalculateStars()
+    {
+        if (Level1Manager.Instance.gameEnded) firstStar = true;
+        if (wrongSelectCount < 3) secondStar = true;
+        if (Timer.Instance.GetDuration() > 20f) thirdStar = true;
+    }
+
     public void SetEndGameText()
     {
         CalculateScore();
+        CalculateStars();
         wrongSelectText.text = "Wrong Selections : " + wrongSelectCount;
         if (Timer.Instance.durationSecond > 10)
         {
@@ -61,5 +71,19 @@ public class Level1Calculator : MonoBehaviour
             timeLeftText.text = "Time Left : 0" + Timer.Instance.durationMinute + ":0" + Timer.Instance.durationSecond;
         }
         scoreText.text = "Total Score : " + Score;
+        StartCoroutine(SetActiveStars());
+    }
+
+    IEnumerator SetActiveStars()
+    {
+        Debug.Log("firstStar : " + firstStar);
+        Debug.Log("secondStar : " + secondStar);
+        Debug.Log("thirdStar : " + thirdStar);
+        yield return new WaitForSeconds(1f);
+        if (firstStar) firstStarObj.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        if (secondStar) secondStarObj.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        if (thirdStar) thirdStarObj.SetActive(true);
     }
 }

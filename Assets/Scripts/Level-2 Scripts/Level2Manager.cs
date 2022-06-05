@@ -7,7 +7,7 @@ public class Level2Manager : MonoBehaviour
     public static Level2Manager Instance;
 
     [SerializeField]
-    GameObject cubePrefab, timerObj, timesUpScreen, endGameScreen;
+    GameObject cubePrefab, timerObj, timesUpScreen, endGameScreen, guideText;
     [SerializeField] public GameObject pauseScreen;
 
     GameObject[] _colorCubes = new GameObject[30];
@@ -115,7 +115,7 @@ public class Level2Manager : MonoBehaviour
         }
         yield return new WaitForSeconds(2f);
         HideColors();
-
+        guideText.SetActive(false);
         timerObj.SetActive(true);
         Timer.Instance.SetDuration(2f, 0f);
         Timer.Instance.StartTimer();
@@ -254,7 +254,7 @@ public class Level2Manager : MonoBehaviour
     {
         Debug.Log("Game Ended...!!!");
         gameEnded = true;
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         canSelect = false;
         endGameScreen.SetActive(true);
         Level2Calculator.Instance.SetEndGameText();

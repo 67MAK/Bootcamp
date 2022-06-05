@@ -6,7 +6,9 @@ public class Level2Calculator : MonoBehaviour
 {
     public static Level2Calculator Instance;
 
-    [SerializeField] Text wrongSelectText, timeLeftText, scoreText, showColorCountLeftText;
+    [SerializeField] GameObject firstStarObj, secondStarObj, thirdStarObj;
+    [SerializeField] Text wrongSelectText, timeLeftText, scoreText, showColorCountLeftText, countdownText;
+    bool firstStar, secondStar, thirdStar;
     public float Score = 0;
     public int wrongSelectCount = 0, showColorHintCount = 2;
 
@@ -42,9 +44,16 @@ public class Level2Calculator : MonoBehaviour
             Score += showColorHintCount * 150f;
         }
     }
+    void CalculateStars()
+    {
+        if (Level2Manager.Instance.gameEnded) firstStar = true;
+        if (wrongSelectCount < 5) secondStar = true;
+        if (Timer.Instance.GetDuration() > 59f) thirdStar = true;
+    }
     public void SetEndGameText()
     {
         CalculateScore();
+        CalculateStars();
         wrongSelectText.text = "Wrong Selections : " + wrongSelectCount;
         if (Timer.Instance.durationSecond > 10)
         {
@@ -55,6 +64,17 @@ public class Level2Calculator : MonoBehaviour
             timeLeftText.text = "Time Left : 0" + Timer.Instance.durationMinute + ":0" + Timer.Instance.durationSecond;
         }
         scoreText.text = "Total Score : " + Score;
+        StartCoroutine(SetActiveStars());
+    }
+
+    IEnumerator SetActiveStars()
+    {
+        yield return new WaitForSeconds(1f);
+        if (firstStar) firstStarObj.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        if (secondStar) secondStarObj.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        if (thirdStar) thirdStarObj.SetActive(true);
     }
 
     public IEnumerator ShowColorProcess()
@@ -69,7 +89,17 @@ public class Level2Calculator : MonoBehaviour
         else
         {
             Level2Manager.Instance.ShowColors();
-            yield return new WaitForSeconds(3f);
+            countdownText.text = "5";
+            yield return new WaitForSeconds(1f);
+            countdownText.text = "4";
+            yield return new WaitForSeconds(1f);
+            countdownText.text = "3";
+            yield return new WaitForSeconds(1f);
+            countdownText.text = "2";
+            yield return new WaitForSeconds(1f);
+            countdownText.text = "1";
+            yield return new WaitForSeconds(1f);
+            countdownText.text = " ";
             Level2Manager.Instance.HideColors();
             showColorHintCount--;
             showColorCountLeftText.text = "Left : " + showColorHintCount;

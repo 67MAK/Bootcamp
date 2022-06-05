@@ -50,7 +50,7 @@ public class Level3Calculator : MonoBehaviour
     {
         if(Level3Manager.Instance.gameEnded) firstStar = true;
         if(wrongSelectCount < 5) secondStar = true;
-        if(Timer.Instance.GetDuration() > 59f) thirdStar = true;
+        if(Timer.Instance.GetDuration() > 45f) thirdStar = true;
     }
     public void SetEndGameText()
     {
