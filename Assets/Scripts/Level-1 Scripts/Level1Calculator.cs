@@ -71,6 +71,8 @@ public class Level1Calculator : MonoBehaviour
             timeLeftText.text = "Time Left : 0" + Timer.Instance.durationMinute + ":0" + Timer.Instance.durationSecond;
         }
         scoreText.text = "Total Score : " + Score;
+        DataManager.Instance.Level1Score = Score;
+        DataManager.Instance.SaveData();
         StartCoroutine(SetActiveStars());
     }
 

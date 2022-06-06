@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] GameObject highScoreScreen;
     void Start()
     {
         
@@ -20,5 +21,36 @@ public class MainMenuManager : MonoBehaviour
     public void PlayGameButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    public void HighScoreButton()
+    {
+        DataManager.Instance.LoadData();
+        highScoreScreen.transform.GetChild(4).GetComponent<Text>().text = "Level 3 Highscore : " + DataManager.Instance.level3HighScore.ToString();
+        highScoreScreen.transform.GetChild(3).GetComponent<Text>().text = "Level 2 Highscore : " + DataManager.Instance.level2HighScore.ToString();
+        highScoreScreen.transform.GetChild(2).GetComponent<Text>().text = "Level 1 Highscore : " + DataManager.Instance.level1HighScore.ToString();
+        highScoreScreen.SetActive(true);
+    }
+    public void CloseHighScoreButton()
+    {
+        highScoreScreen.SetActive(false);
+    }
+    
+    public void ResetLevel1DataButton()
+    {
+        DataManager.Instance.level1HighScore = 0;
+        highScoreScreen.transform.GetChild(2).GetComponent<Text>().text = "Level 1 Highscore : " + DataManager.Instance.level1HighScore.ToString();
+        DataManager.Instance.SaveData();
+    }
+    public void ResetLevel2DataButton()
+    {
+        DataManager.Instance.level2HighScore = 0;
+        highScoreScreen.transform.GetChild(3).GetComponent<Text>().text = "Level 2 Highscore : " + DataManager.Instance.level2HighScore.ToString();
+        DataManager.Instance.SaveData();
+    }
+    public void ResetLevel3DataButton()
+    {
+        DataManager.Instance.level3HighScore = 0;
+        highScoreScreen.transform.GetChild(4).GetComponent<Text>().text = "Level 3 Highscore : " + DataManager.Instance.level3HighScore.ToString();
+        DataManager.Instance.SaveData();
     }
 }

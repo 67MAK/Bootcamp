@@ -1169,6 +1169,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 792114104078203516, guid: 6546770679b17b54aaa863d275c02f7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 245687477}
+    - target: {fileID: 792114104078203516, guid: 6546770679b17b54aaa863d275c02f7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenuButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 792114104078203516, guid: 6546770679b17b54aaa863d275c02f7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Level1MenuManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 792114104284648182, guid: 6546770679b17b54aaa863d275c02f7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1285,6 +1297,18 @@ PrefabInstance:
     - target: {fileID: 4414701397029593151, guid: a08af111e8112064692f023d65b70597, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414701397115246440, guid: a08af111e8112064692f023d65b70597, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 245687477}
+    - target: {fileID: 4414701397115246440, guid: a08af111e8112064692f023d65b70597, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenuButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414701397115246440, guid: a08af111e8112064692f023d65b70597, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Level1MenuManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4414701397541937233, guid: a08af111e8112064692f023d65b70597, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1414,5 +1438,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 245687477}
+    - target: {fileID: 6598156650340024080, guid: edf398629d056644da210c419f828a5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 245687477}
+    - target: {fileID: 6598156650340024080, guid: edf398629d056644da210c419f828a5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenuButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598156650340024080, guid: edf398629d056644da210c419f828a5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Level1MenuManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edf398629d056644da210c419f828a5d, type: 3}

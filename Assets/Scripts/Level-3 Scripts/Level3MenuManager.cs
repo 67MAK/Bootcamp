@@ -27,7 +27,7 @@ public class Level3MenuManager : MonoBehaviour
 
     public void MainMenuButton()
     {
-        Debug.Log("Main Menu...!");
+        SceneManager.LoadScene(0);
     }
 
     public void RestartButton()

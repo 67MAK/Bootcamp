@@ -25,7 +25,7 @@ public class Level1MenuManager : MonoBehaviour
 
     public void MainMenuButton()
     {
-
+        SceneManager.LoadScene(0);
     }
 
     public void RestartButton()
