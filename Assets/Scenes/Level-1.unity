@@ -863,6 +863,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 751923309}
     m_Modifications:
+    - target: {fileID: 77722730782083079, guid: ae079432f3aa6064c84d7540d9f7699f, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 77722730782083079, guid: ae079432f3aa6064c84d7540d9f7699f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 37d73b4ee4a4eb54391b4f9be1f8f8cc, type: 3}
     - target: {fileID: 77722730782083080, guid: ae079432f3aa6064c84d7540d9f7699f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -897,7 +905,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 77722730782083081, guid: ae079432f3aa6064c84d7540d9f7699f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 77722730782083081, guid: ae079432f3aa6064c84d7540d9f7699f, type: 3}
       propertyPath: m_SizeDelta.y
@@ -933,11 +941,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 77722730782083081, guid: ae079432f3aa6064c84d7540d9f7699f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -45
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 77722730782083081, guid: ae079432f3aa6064c84d7540d9f7699f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -45
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 77722730782083081, guid: ae079432f3aa6064c84d7540d9f7699f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1065,10 +1073,6 @@ PrefabInstance:
       propertyPath: m_Text
       value: Leave 20 Seconds Or More Time
       objectReference: {fileID: 0}
-    - target: {fileID: 1219503816, guid: 6546770679b17b54aaa863d275c02f7f, type: 3}
-      propertyPath: m_Text
-      value: There are 8 different colors and for each color there 2 cubes to match..!
-      objectReference: {fileID: 0}
     - target: {fileID: 1675987800, guid: 6546770679b17b54aaa863d275c02f7f, type: 3}
       propertyPath: m_Text
       value: Make 3 Or Less Wrong Selection
@@ -1193,6 +1197,10 @@ PrefabInstance:
     - target: {fileID: 4414701397029593150, guid: a08af111e8112064692f023d65b70597, type: 3}
       propertyPath: m_Name
       value: EndGameScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414701397029593150, guid: a08af111e8112064692f023d65b70597, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4414701397029593151, guid: a08af111e8112064692f023d65b70597, type: 3}
       propertyPath: m_Pivot.x
@@ -1397,6 +1405,10 @@ PrefabInstance:
     - target: {fileID: 6598156649308750221, guid: edf398629d056644da210c419f828a5d, type: 3}
       propertyPath: m_Name
       value: TimesUpScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598156649308750221, guid: edf398629d056644da210c419f828a5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6598156649537097442, guid: edf398629d056644da210c419f828a5d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
