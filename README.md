@@ -12,7 +12,7 @@ Takım 91
 
 ## Ürün İsmi
 
---Belirlenmedi--
+- Matchy Matchy
 
 ## Ürün Açıklaması
 
@@ -128,12 +128,50 @@ Sprint Review katılımcıları: Tüm ekip
   -	Üniversitelerin final haftaları sebebiyle sprintler arası görev değişimi ya da görevin basitleştirilmesi gibi esnekliklerin sağlanmasına karar verildi.
  - Game Design Document taslağı düzenlenip son hali eklenmeli. 
 
-**Game Design Document**
-- will be written here later.
 
 ---
 
 # Sprint 3
 
+- **Sprint içinde tamamlanması tahmin edilen puan**: 100 puan
+
+- **Puan tamamlama mantığı**: •	Aramızda paylaştığımız görevleri tamamladık.
+
+- **Backlog düzeni ve Story seçimleri**: Backlogdaki tüm işler tamamlandı.
+
+- **Daily Scrum**: Daily Scrum toplantılarının zamansal sebeplerden ötürü WhatsApp ve Slack üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği word olarak Readme'de tarafımızdan paylaşılmaktadır: 
+  
+
+- **Sprint Review**: 
+Birbirimizle uyum içinde çalıştığımızı fark ettik ve gelecek için network oluşturmuş olmamıza memnun olarak akademyi tamamladık. Projenin tıkanan noktaları için optimum çözümler ürettik.
+
+Sprint Review katılımcıları: Tüm ekip
+
+- **Sprint Retrospective:**
+  - Oyunun müzik ve ses seçimlerini tamamlamadık, buna vakit ayırmalıydık.
 ---
- 
+ **Game Design Document**
+-Oyunun İsmi: Matchy Matchy (hypercasual)
+
+-Asansör Konuşması: Rahatlatıcı bir misyona sahip olan oyunumuz, pop art ve modern sanatın bir kombinasyonundan oluşan temasıyla, temelde bir renk eşleştirme oyunu.
+
+-Monetization:  f2p olan oyunumuz, session sonlarında 3d printable ve aynı zamanda nft değeri olan bir çıktı vermekte. Bu çıktıyı alabilmek için reklam izlenmeli. (60 second ads)
+
+-Hikaye: Canlı renkleri ve alışılagelmiş formlarla bilinen pop art'ın modern sanat ve 3d-printable&nft olan 3d modellerle buluşması
+
+-Gameplay: Oyuncu, sessiondaki tüm küpleri görür ve aynı renktekileri bulmaya çalışır.
+
+-Core Game Mechanics: Tapping Mechanics: Tapping, küplerin rengini görmek için
+
+-Game elements: Çeşitli modellerin 16-30-42 parçaya bölünmüş halleri
+
+-Karakterler: Oyuncunun kendisi
+
+-Levels / missions: 16'lık puzzle ile başlayan oyun sırasıyla 30 ve 42, proje ilerletilirse 100 parçaya kadar giden şekilde zorlaşarak devam eder.
+
+-Mission: mümkün olan en kısa sürede renkleri doğru eşleştirmek
+
+-Objects: Model parçaları
+
+-Art: Çevre, modellemeler, ui
+
