@@ -1,26 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class Level1MenuManager : MonoBehaviour
 {
-    void Start()
+    [SerializeField] GameObject muteButton;
+    Image muteButtonImg;
+    [SerializeField] Sprite[] switchSprite;
+    int i = 0;
+    private void Start()
     {
-        
+        muteButtonImg = muteButton.GetComponent<Button>().image;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void PauseButton()
     {
         if (!Level1Manager.Instance.gameEnded)
         {
             FindObjectOfType<AudioManager>().Play("ClickSound");
             Level1Manager.Instance.PauseGameProcess();
+        }
+    }
+    public void MuteMusicButton()
+    {
+        if (i == 0)
+        {
+            FindObjectOfType<AudioManager>().Stop("LivingInAMadWorld");
+            muteButtonImg.sprite = switchSprite[i];
+            i = 1;
+        }
+        else if (i == 1)
+        {
+            FindObjectOfType<AudioManager>().Play("LivingInAMadWorld");
+            muteButtonImg.sprite = switchSprite[i];
+            i = 0;
         }
     }
 

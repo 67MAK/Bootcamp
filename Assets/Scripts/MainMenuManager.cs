@@ -6,23 +6,64 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] GameObject highScoreScreen, levelsScreen, titleText;
-    MeshRenderer _renderer;
+    [SerializeField] GameObject highScoreScreen, levelsScreen, titleText, muteButton;
+    Text text;
+    Image muteButtonImg;
+    [SerializeField] Sprite[] switchSprite;
+    int i = 0;
     void Start()
     {
         FindObjectOfType<AudioManager>().Play("Exhale");
+        text = titleText.GetComponent<Text>();
+        muteButtonImg = muteButton.GetComponent<Button>().image;
+        StartCoroutine(colorRain());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator colorRain()
     {
-        
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+            text.color = new Color(1f, 0f, 0.784f);
+            yield return new WaitForSeconds(1f);
+            text.color = new Color(0.078f, 0f, 1f);
+            yield return new WaitForSeconds(1f);
+            text.color = new Color(1f, 1f, 0f);
+            yield return new WaitForSeconds(1f);
+            text.color = new Color(0.078f, 1f, 0f);
+            yield return new WaitForSeconds(1f);
+            text.color = new Color(0.5f, 0.28f, 0f);
+            yield return new WaitForSeconds(1f);
+            text.color = new Color(1f, 0f, 0f);
+            yield return new WaitForSeconds(1f);
+            text.color = new Color(0f, 1f, 1f);
+            yield return new WaitForSeconds(1f);
+            text.color = new Color(0f, 0f, 0f);
+            yield return new WaitForSeconds(1f);
+            text.color = new Color(1f, 0.431f, 0f);
+            yield return new WaitForSeconds(1f);
+            text.color = new Color(0f, 0.392f, 0.392f);
+            yield return new WaitForSeconds(1f);
+            text.color = new Color(0.392f, 0f, 0f);
+            yield return new WaitForSeconds(1f);
+            text.color = new Color(0.392f, 0f, 0.392f);
+            yield return new WaitForSeconds(1f);
+            text.color = new Color(0f, 0.392f, 0f);
+            yield return new WaitForSeconds(1f);
+            text.color = new Color(0f, 0f, 0.431f);
+            yield return new WaitForSeconds(1f);
+            text.color = new Color(0.353f, 0.353f, 0.353f);
+        }
     }
 
     public void PlayGameButton()
     {
         FindObjectOfType<AudioManager>().Play("ClickSound");
         levelsScreen.SetActive(true);
+    }
+    public void ExitGameButton()
+    {
+        Application.Quit();
     }
     public void HighScoreButton()
     {
@@ -43,6 +84,22 @@ public class MainMenuManager : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("ClickSound");
         levelsScreen.SetActive(false);
+    }
+
+    public void MuteMusicButton()
+    {
+        if(i == 0)
+        {
+            FindObjectOfType<AudioManager>().Stop("Exhale");
+            muteButtonImg.sprite = switchSprite[i];
+            i = 1;
+        }
+        else if(i == 1)
+        {
+            FindObjectOfType<AudioManager>().Play("Exhale");
+            muteButtonImg.sprite = switchSprite[i];
+            i = 0;
+        }
     }
 
     public void Level1Button()
