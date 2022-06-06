@@ -5,48 +5,42 @@ using UnityEngine.SceneManagement;
 
 public class Level3MenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void PauseButton()
     {
         if (!Level3Manager.Instance.gameEnded)
         {
+            FindObjectOfType<AudioManager>().Play("ClickSound");
             Level3Manager.Instance.PauseGameProcess();
         }
     }
 
     public void MainMenuButton()
     {
+        FindObjectOfType<AudioManager>().Stop("EternalFire");
+        FindObjectOfType<AudioManager>().Play("ClickSound");
         SceneManager.LoadScene(0);
     }
 
     public void RestartButton()
     {
+        FindObjectOfType<AudioManager>().Play("ClickSound");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f;
     }
 
     public void ContinueButton()
     {
+        FindObjectOfType<AudioManager>().Play("ClickSound");
         Level3Manager.Instance.pauseScreen.SetActive(false);
         Time.timeScale = 1f;
         Level3Manager.Instance.Invoke("SetCanSelect", 0.5f);
     }
     public void ShowColorsButton()
     {
-        Debug.Log("Cubes Hiding : " + Level3Manager.Instance.isColorHiding);
         if (Level3Manager.Instance.isColorHiding && !Level3Manager.Instance.gameEnded)
         {
+            FindObjectOfType<AudioManager>().Play("ClickSound");
             StartCoroutine(Level3Calculator.Instance.ShowColorProcess());
         }
     }

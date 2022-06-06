@@ -100,6 +100,10 @@ public class Timer : MonoBehaviour
             {
                 durationSecond -= 1;
             }
+            if(durationSecond == 10 && durationMinute == 0)
+            {
+                FindObjectOfType<AudioManager>().Play("Last10SecondsSound");
+            }
             SetTimerText();
             SetCircle();
         }

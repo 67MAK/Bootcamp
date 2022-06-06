@@ -74,11 +74,25 @@ public class Level3Calculator : MonoBehaviour
     IEnumerator SetActiveStars()
     {
         yield return new WaitForSeconds(1f);
-        if (firstStar) firstStarObj.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        if (secondStar) secondStarObj.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        if (thirdStar) thirdStarObj.SetActive(true);
+        if (firstStar)
+        {
+            firstStarObj.SetActive(true);
+            FindObjectOfType<AudioManager>().Play("StarSound");
+            yield return new WaitForSeconds(1f);
+        }
+        if (secondStar)
+        {
+            FindObjectOfType<AudioManager>().Stop("StarSound");
+            secondStarObj.SetActive(true);
+            FindObjectOfType<AudioManager>().Play("StarSound");
+            yield return new WaitForSeconds(1f);
+        }
+        if (thirdStar)
+        {
+            FindObjectOfType<AudioManager>().Stop("StarSound");
+            thirdStarObj.SetActive(true);
+            FindObjectOfType<AudioManager>().Play("StarSound");
+        }
     }
 
     public IEnumerator ShowColorProcess()

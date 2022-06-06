@@ -37,6 +37,7 @@ public class Level3Manager : MonoBehaviour
     }
     void Start()
     {
+        FindObjectOfType<AudioManager>().Play("EternalFire");
         SetFalse();
         colors[0] = new Color(1f, 0f, 0.784f);
         colors[1] = new Color(0.078f, 0f, 1f);
@@ -84,6 +85,7 @@ public class Level3Manager : MonoBehaviour
                 instantiateAnchor = new Vector3(0, 0, instantiateAnchor.z);
                 instantiateAnchor = instantiateAnchor + new Vector3(0, 0, 1.25f);
             }
+            FindObjectOfType<AudioManager>().Play("CubeInstantiateSound");
             yield return new WaitForSeconds(0.15f);
         }
         instantiateAnchor = Vector3.zero;
@@ -110,6 +112,7 @@ public class Level3Manager : MonoBehaviour
                     colorIndex++;
                 }
             }
+            FindObjectOfType<AudioManager>().Play("SetColorSound");
             yield return new WaitForSeconds(0.15f);
         }
         yield return new WaitForSeconds(2f);
@@ -200,6 +203,7 @@ public class Level3Manager : MonoBehaviour
     void MatchCorrect()
     {
         Debug.Log("Match Correct");
+        FindObjectOfType<AudioManager>().Play("CorrectSound");
         Level3Calculator.Instance.Score += 50f;
         StartCoroutine(FlipSelectedCubes());
 
@@ -222,6 +226,7 @@ public class Level3Manager : MonoBehaviour
     void MatchWrong()
     {
         Debug.Log("Match Wrong");
+        FindObjectOfType<AudioManager>().Play("WrongSound");
         Level3Calculator.Instance.wrongSelectCount++;
         if (Level3Calculator.Instance.Score > 30f)
         {
@@ -273,6 +278,8 @@ public class Level3Manager : MonoBehaviour
     }
     void EndGameProcess()
     {
+        FindObjectOfType<AudioManager>().Stop("EternalFire");
+        FindObjectOfType<AudioManager>().Play("EndLevelSound");
         Debug.Log("Game Ended...!!!");
         gameEnded = true;
         //Time.timeScale = 0f;

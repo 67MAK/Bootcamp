@@ -33,6 +33,7 @@ public class Level2MouseFeedback : MonoBehaviour
         {
             if (!isFlipped)
             {
+                FindObjectOfType<AudioManager>().Play("CubeSelectSound");
                 _renderer.material.color = Level2Manager.Instance._colorsOfCubes[_index];
                 Level2Manager.Instance.CubeSelect(_index);
             }
