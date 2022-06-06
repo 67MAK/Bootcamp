@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] GameObject highScoreScreen, levelsScreen;
+    [SerializeField] GameObject highScoreScreen, levelsScreen, titleText;
+    MeshRenderer _renderer;
     void Start()
     {
         FindObjectOfType<AudioManager>().Play("Exhale");
