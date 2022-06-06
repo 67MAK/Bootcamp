@@ -139,7 +139,8 @@ Sprint Review katılımcıları: Tüm ekip
 
 - **Backlog düzeni ve Story seçimleri**: Backlogdaki tüm işler tamamlandı.
 
-- **Daily Scrum**: Daily Scrum toplantılarının zamansal sebeplerden ötürü WhatsApp ve Slack üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği scrum documents ve ayrıca şu drive bağlantısında paylaşılmaktadır: https://drive.google.com/drive/folders/1qFuGFpSHGyw51uKw8mC7pwjq2WpROfzi?usp=sharing 
+- **Daily Scrum**: Daily Scrum toplantılarının zamansal sebeplerden ötürü WhatsApp ve Slack üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği scrum documents ve ayrıca şu drive bağlantısında paylaşılmaktadır:  https://drive.google.com/drive/folders/1qFuGFpSHGyw51uKw8mC7pwjq2WpROfzi?usp=sharing 
+- Trello Product Backlog: https://trello.com/b/VvRlKenv/yeni-tak%C4%B1m-91 
 
 - **Sprint Review**: 
 Birbirimizle uyum içinde çalıştığımızı fark ettik ve gelecek için network oluşturmuş olmamıza memnun olarak akademyi tamamladık. Projenin tıkanan noktaları için optimum çözümler ürettik.
